@@ -29,6 +29,20 @@ router.post('/login', controller.login);
 
 /**
  * @swagger
+ * /api/users/logout:
+ *   post:
+ *     summary: Logout user
+ *     description: Log out from the app. In this stateless demo system (token = userId), this advises client to forget the token.
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       204:
+ *         description: Successfully logged out (token invalidated client-side)
+ */
+router.post('/logout', requireAuth, controller.logout);
+
+/**
+ * @swagger
  * /api/users/profile:
  *   get:
  *     summary: Get your profile

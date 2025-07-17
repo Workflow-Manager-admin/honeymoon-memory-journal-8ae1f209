@@ -30,6 +30,16 @@ class UserController {
     return res.status(200).json({ user, token: user.id });
   }
 
+  async logout(req, res) {
+    /** 
+     * PUBLIC_INTERFACE
+     * Log out user - for stateless demo, this is a client-side removal, but route exists for completeness.
+     */
+    // In a stateless system, to "logout", client just deletes their token. You might blacklist on backend if using JWT.
+    // Here just respond ok.
+    return res.status(204).send();
+  }
+
   async profile(req, res) {
     return res.status(200).json({ user: req.user });
   }
